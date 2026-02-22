@@ -1,0 +1,18 @@
+.news-page-wrapper {
+  padding: 0;
+}
+
+.feature-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.feature-card-link:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card-link .feature-card {
+  height: 100%;
+}

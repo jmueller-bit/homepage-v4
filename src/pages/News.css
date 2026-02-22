@@ -1,0 +1,141 @@
+.news-page {
+  overflow-x: hidden;
+}
+
+.news-hero {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--teal) 100%);
+  color: white;
+  padding: 100px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.news-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.news-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.news-hero h1 {
+  color: white;
+  margin-bottom: 16px;
+}
+
+.news-hero .hero-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.news-load-more {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.news-load-more button {
+  min-width: 200px;
+}
+
+.news-load-more button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.news-loading-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+  color: #666;
+}
+
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(94, 147, 69, 0.2);
+  border-top-color: var(--primary-green);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.news-empty {
+  text-align: center;
+  padding: 80px 40px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.news-empty-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.news-empty h3 {
+  color: var(--dark-gray);
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+}
+
+.news-empty p {
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.news-empty-hint {
+  font-size: 0.9rem;
+  color: #888;
+  font-style: italic;
+}
+
+@media (max-width: 992px) {
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .news-hero {
+    padding: 80px 0 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-hero {
+    padding: 60px 0 40px;
+  }
+
+  .news-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .news-empty {
+    padding: 60px 24px;
+  }
+}

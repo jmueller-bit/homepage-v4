@@ -1,5 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, Routes, Route, useLocation } from 'react-router-dom';
+import News from './News';
+import NewsDetail from './NewsDetail';
 import './PageTemplate.css';
+import './Schulleben.css';
 
 const sections = [
   { path: '/schulleben/news', title: 'Aktuelles & News' },
@@ -9,9 +12,9 @@ const sections = [
   { path: '/schulleben/erfolge', title: 'Erfolgsgeschichten' },
 ];
 
-function Schulleben() {
+function SchullebenOverview() {
   return (
-    <div className="page-template">
+    <>
       <section className="page-hero">
         <div className="container">
           <h1>Schulleben</h1>
@@ -25,27 +28,35 @@ function Schulleben() {
             <div className="main-content glass">
               <h2>Lebendiges Schulleben</h2>
               <p>
-                Das Astrid Lindgren Zentrum ist mehr als eine Schule - es ist eine Gemeinschaft. 
+                Das Astrid Lindgren Zentrum ist mehr als eine Schule - es ist eine Gemeinschaft.
                 Hier erfahren Sie alles über unsere Projekte, Veranstaltungen und das alltägliche Leben bei uns.
               </p>
-              
+
               <div className="feature-cards">
-                <div className="feature-card glass">
-                  <h4>Aktuelles & News</h4>
-                  <p>Neuigkeiten, Blog-Beiträge und unser Newsletter-Archiv.</p>
-                </div>
-                <div className="feature-card glass">
-                  <h4>Projekte & Aktivitäten</h4>
-                  <p>Aktuelle Projekte, Ausflüge, Reisen und Workshops.</p>
-                </div>
-                <div className="feature-card glass">
-                  <h4>Galerie</h4>
-                  <p>Fotos, Videos und Schüler:innen-Arbeiten.</p>
-                </div>
-                <div className="feature-card glass">
-                  <h4>Veranstaltungen</h4>
-                  <p>Termine, Feste und Feiern im Überblick.</p>
-                </div>
+                <Link to="/schulleben/news" className="feature-card-link">
+                  <div className="feature-card glass">
+                    <h4>Aktuelles & News</h4>
+                    <p>Neuigkeiten, Blog-Beiträge und unser Newsletter-Archiv.</p>
+                  </div>
+                </Link>
+                <Link to="/schulleben/projekte" className="feature-card-link">
+                  <div className="feature-card glass">
+                    <h4>Projekte & Aktivitäten</h4>
+                    <p>Aktuelle Projekte, Ausflüge, Reisen und Workshops.</p>
+                  </div>
+                </Link>
+                <Link to="/schulleben/galerie" className="feature-card-link">
+                  <div className="feature-card glass">
+                    <h4>Galerie</h4>
+                    <p>Fotos, Videos und Schüler:innen-Arbeiten.</p>
+                  </div>
+                </Link>
+                <Link to="/schulleben/veranstaltungen" className="feature-card-link">
+                  <div className="feature-card glass">
+                    <h4>Veranstaltungen</h4>
+                    <p>Termine, Feste und Feiern im Überblick.</p>
+                  </div>
+                </Link>
               </div>
             </div>
 
@@ -62,12 +73,27 @@ function Schulleben() {
               <div className="sidebar-cta glass">
                 <h4>Newsletter</h4>
                 <p>Bleiben Sie informiert!</p>
-                <button className="btn btn-primary">Anmelden</button>
+                <Link to="/eltern/services" className="btn btn-primary">Anmelden</Link>
               </div>
             </div>
           </div>
         </div>
       </section>
+    </>
+  );
+}
+
+function Schulleben() {
+  const location = useLocation();
+  const isNewsSubpage = location.pathname.startsWith('/schulleben/news');
+
+  return (
+    <div className={`page-template ${isNewsSubpage ? 'news-page-wrapper' : ''}`}>
+      <Routes>
+        <Route path="/" element={<SchullebenOverview />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/news/:slug" element={<NewsDetail />} />
+      </Routes>
     </div>
   );
 }
