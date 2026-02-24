@@ -7,9 +7,11 @@ import Schule from './pages/Schule';
 import FuersEltern from './pages/FuersEltern';
 import Schulleben from './pages/Schulleben';
 import UeberUns from './pages/UeberUns';
+import Team from './pages/Team';
 import Unterstuetzen from './pages/Unterstuetzen';
 import Karriere from './pages/Karriere';
 import Kontakt from './pages/Kontakt';
+import Gallery from './pages/Gallery';
 import Footer from './components/Footer';
 
 function App() {
@@ -24,9 +26,11 @@ function App() {
             <Route path="/eltern/*" element={<FuersEltern />} />
             <Route path="/schulleben/*" element={<Schulleben />} />
             <Route path="/ueber-uns/*" element={<UeberUns />} />
+            <Route path="/ueber-uns/team" element={<Team />} />
             <Route path="/unterstuetzen/*" element={<Unterstuetzen />} />
             <Route path="/karriere/*" element={<Karriere />} />
             <Route path="/kontakt/*" element={<Kontakt />} />
+            <Route path="/galerie" element={<Gallery />} />
           </Routes>
         </main>
         <Footer />
