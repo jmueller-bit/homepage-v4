@@ -25,6 +25,7 @@ function App() {
             <Route path="/schule/*" element={<Schule />} />
             <Route path="/eltern/*" element={<FuersEltern />} />
             <Route path="/schulleben/*" element={<Schulleben />} />
+            <Route path="/schulleben/galerie" element={<Gallery />} />
             <Route path="/ueber-uns/*" element={<UeberUns />} />
             <Route path="/ueber-uns/team" element={<Team />} />
             <Route path="/unterstuetzen/*" element={<Unterstuetzen />} />
