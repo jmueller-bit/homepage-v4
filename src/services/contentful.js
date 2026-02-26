@@ -92,7 +92,7 @@ export const getTeamMembers = async (limit = 50) => {
     
     return response.items.map(item => {
       const fields = item.fields
-      const photoAsset = fields.photo?.[0] || fields.photo
+      const photoAsset = fields.foto
       const { width, height } = getImageDimensions(photoAsset)
       
       return {
