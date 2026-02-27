@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getTeamMembers } from '../services/contentful';
 import './PageTemplate.css';
+import './Team.css';
 
 function Team() {
   const [team, setTeam] = useState([]);
@@ -76,8 +77,8 @@ function Team() {
                 </div>
               ) : (
                 <div className="team-grid">
-                  {team.map((member) => (
-                    <div key={member.id} className="team-card glass">
+                  {team.map((member, index) => (
+                    <div key={member.id} className={`team-card glass ${index === 0 ? 'featured' : ''}`}>
                       {member.photo && (
                         <div className="team-photo">
                           <img 
