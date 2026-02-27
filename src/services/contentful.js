@@ -27,7 +27,7 @@ export const getNewsArticles = async (limit = 10, skip = 0) => {
   try {
     const response = await client.getEntries({
       content_type: 'newsArtikel',
-      order: '-fields.publishDate',
+      order: '-fields.datum',
       limit,
       skip,
       include: 1
@@ -63,8 +63,8 @@ export const getNewsArticlesByCategory = async (category, limit = 10, skip = 0) 
   try {
     const response = await client.getEntries({
       content_type: 'newsArtikel',
-      'fields.category': category,
-      order: '-fields.publishDate',
+      'fields.kategorie': category,
+      order: '-fields.datum',
       limit,
       skip
     })
