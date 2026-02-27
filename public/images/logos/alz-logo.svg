@@ -1,24 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180">
-  <!-- ALZ Logo - Connected letters -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 160">
+  <!-- ALZ Logo - Connected letters A, L, Z -->
   <defs>
     <style>
-      .logo-path { fill: none; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; }
+      .logo-stroke {
+        fill: none;
+        stroke-width: 22;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
     </style>
   </defs>
   
-  <!-- Green A (left vertical with top curve) -->
-  <path d="M 30 160 L 30 70 Q 30 30 70 30 L 85 30" 
-        stroke="#4A7C59" class="logo-path"/>
+  <!-- Orange L - Left vertical and top horizontal -->
+  <path d="M 35 140 L 35 50 Q 35 35 50 35 L 95 35" 
+        stroke="#E8A838" class="logo-stroke"/>
   
-  <!-- Orange L (top horizontal connecting to diagonal) -->
-  <path d="M 70 30 L 110 30 Q 130 30 130 50 L 130 95" 
-        stroke="#F5A623" class="logo-path"/>
+  <!-- Red Z - Diagonal from top-right to bottom-left -->
+  <path d="M 145 35 L 95 95" 
+        stroke="#B5423C" class="logo-stroke"/>
   
-  <!-- Red Z diagonal (from top-right to middle) -->
-  <path d="M 170 30 L 110 95" 
-        stroke="#C44536" class="logo-path"/>
+  <!-- Red Z - Bottom horizontal -->
+  <path d="M 95 95 L 145 95 Q 145 95 145 110 L 145 140" 
+        stroke="#B5423C" class="logo-stroke"/>
   
-  <!-- Red Z bottom (horizontal extension) -->
-  <path d="M 130 95 L 170 95 Q 170 95 170 115 L 170 160" 
-        stroke="#C44536" class="logo-path"/>
+  <!-- Green A - Right vertical -->
+  <path d="M 115 35 Q 145 35 145 65 L 145 140" 
+        stroke="#5A8F5A" class="logo-stroke"/>
 </svg>
