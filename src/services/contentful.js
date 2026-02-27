@@ -22,6 +22,23 @@ const getImageDimensions = (asset) => {
   }
 }
 
+// Helper function to convert Contentful Rich Text to plain text
+const richTextToPlainText = (richText) => {
+  if (!richText || !richText.content) return ''
+  
+  const extractText = (node) => {
+    if (node.nodeType === 'text') {
+      return node.value || ''
+    }
+    if (node.content && Array.isArray(node.content)) {
+      return node.content.map(extractText).join('')
+    }
+    return ''
+  }
+  
+  return richText.content.map(extractText).join('\n\n')
+}
+
 // News Articles
 export const getNewsArticles = async (limit = 10, skip = 0) => {
   try {
@@ -99,7 +116,7 @@ export const getTeamMembers = async (limit = 50) => {
         id: item.sys.id,
         name: fields.name || fields.titel,
         role: fields.funktion || fields.role,
-        bio: fields.bio || fields.beschreibung,
+        bio: richTextToPlainText(fields.beschreibung),
         order: fields.reihenfolge || 0,
         photo: photoAsset ? {
           url: getImageUrl(photoAsset),
