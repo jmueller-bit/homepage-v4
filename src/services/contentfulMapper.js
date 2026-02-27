@@ -5,14 +5,14 @@ export const mapNewsArticle = (entry) => {
 
   return {
     id: entry.sys.id,
-    title: fields.title || '',
+    title: fields.titel || '',
     slug: fields.slug || '',
-    excerpt: fields.excerpt || '',
-    content: fields.content || null,
-    category: fields.category || 'Allgemein',
-    publishDate: fields.publishDate ? new Date(fields.publishDate) : null,
-    author: fields.author || 'ALZ Team',
-    image: fields.featuredImage ? mapAsset(fields.featuredImage) : null
+    excerpt: fields.vorschautext || '',
+    content: fields.inhalt || null,
+    category: fields.kategorie || 'Allgemein',
+    publishDate: fields.datum ? new Date(fields.datum) : null,
+    author: fields.autor || 'ALZ Team',
+    image: fields.titelbild ? mapAsset(fields.titelbild) : null
   }
 }
 

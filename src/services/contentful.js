@@ -26,7 +26,7 @@ const getImageDimensions = (asset) => {
 export const getNewsArticles = async (limit = 10, skip = 0) => {
   try {
     const response = await client.getEntries({
-      content_type: 'newsArticle',
+      content_type: 'newsArtikel',
       order: '-fields.publishDate',
       limit,
       skip,
@@ -47,7 +47,7 @@ export const getNewsArticles = async (limit = 10, skip = 0) => {
 export const getNewsArticleBySlug = async (slug) => {
   try {
     const response = await client.getEntries({
-      content_type: 'newsArticle',
+      content_type: 'newsArtikel',
       'fields.slug': slug,
       limit: 1,
       include: 2
@@ -62,7 +62,7 @@ export const getNewsArticleBySlug = async (slug) => {
 export const getNewsArticlesByCategory = async (category, limit = 10, skip = 0) => {
   try {
     const response = await client.getEntries({
-      content_type: 'newsArticle',
+      content_type: 'newsArtikel',
       'fields.category': category,
       order: '-fields.publishDate',
       limit,
