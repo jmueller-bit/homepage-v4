@@ -8,6 +8,7 @@ function Team() {
   const [team, setTeam] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedMember, setSelectedMember] = useState(null);
 
   useEffect(() => {
     const fetchTeam = async () => {
@@ -23,6 +24,35 @@ function Team() {
 
     fetchTeam();
   }, []);
+
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') {
+        setSelectedMember(null);
+      }
+    };
+    
+    if (selectedMember) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedMember]);
+
+  const openModal = (member) => {
+    setSelectedMember(member);
+  };
+
+  const closeModal = () => {
+    setSelectedMember(null);
+  };
 
   if (loading) {
     return (
@@ -76,25 +106,33 @@ function Team() {
                   <p>Derzeit sind keine Team-Mitglieder verfügbar.</p>
                 </div>
               ) : (
-                <div className="team-grid">
-                  {team.map((member, index) => (
-                    <div key={member.id} className={`team-card glass ${index === 0 ? 'featured' : ''}`}>
-                      {member.photo && (
-                        <div className="team-photo">
-                          <img 
-                            src={member.photo.url} 
-                            alt={member.name}
-                            loading="lazy"
-                          />
+                <div className="team-section">
+                  <div className="team-grid">
+                    {team.map((member) => (
+                      <div 
+                        key={member.id} 
+                        className="team-card"
+                        onClick={() => openModal(member)}
+                      >
+                        {member.photo && (
+                          <div className="team-photo">
+                            <img 
+                              src={member.photo.url} 
+                              alt={member.name}
+                              loading="lazy"
+                            />
+                          </div>
+                        )}
+                        <div className="team-info">
+                          <h3>{member.name}</h3>
+                          <p className="team-role">{member.role}</p>
+                          {member.bio && (
+                            <p className="team-bio-preview">{member.bio}</p>
+                          )}
                         </div>
-                      )}
-                      <div className="team-info">
-                        <h3>{member.name}</h3>
-                        <p className="team-role">{member.role}</p>
-                        {member.bio && <p className="team-bio">{member.bio}</p>}
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -118,6 +156,34 @@ function Team() {
           </div>
         </div>
       </section>
+
+      {/* Modal */}
+      {selectedMember && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal} aria-label="Schließen">
+              ×
+            </button>
+            
+            {selectedMember.photo && (
+              <div className="modal-image">
+                <img 
+                  src={selectedMember.photo.url} 
+                  alt={selectedMember.name}
+                />
+              </div>
+            )}
+            
+            <div className="modal-body">
+              <h2>{selectedMember.name}</h2>
+              <p className="modal-role">{selectedMember.role}</p>
+              {selectedMember.bio && (
+                <p className="modal-bio">{selectedMember.bio}</p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
