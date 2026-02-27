@@ -20,6 +20,11 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  gap: 12px;
+}
+
+.logo-icon {
+  flex-shrink: 0;
 }
 
 .logo-text {

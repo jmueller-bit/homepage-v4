@@ -94,6 +94,13 @@ function Header() {
     <header className="header glass-dark">
       <div className="header-container">
         <Link to="/" className="logo" onClick={closeMobileMenu}>
+          <img 
+            src="/images/logos/alz-logo.svg" 
+            alt="ALZ Logo" 
+            className="logo-icon"
+            width="40"
+            height="36"
+          />
           <div className="logo-text">
             <span className="logo-main">Astrid Lindgren</span>
             <span className="logo-sub">Zentrum</span>
