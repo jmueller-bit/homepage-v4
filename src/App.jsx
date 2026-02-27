@@ -12,6 +12,8 @@ import Unterstuetzen from './pages/Unterstuetzen';
 import Karriere from './pages/Karriere';
 import Kontakt from './pages/Kontakt';
 import Gallery from './pages/Gallery';
+import Impressum from './pages/Impressum';
+import Datenschutz from './pages/Datenschutz';
 import Footer from './components/Footer';
 
 function App() {
@@ -32,6 +34,8 @@ function App() {
             <Route path="/karriere/*" element={<Karriere />} />
             <Route path="/kontakt/*" element={<Kontakt />} />
             <Route path="/galerie" element={<Gallery />} />
+            <Route path="/impressum" element={<Impressum />} />
+            <Route path="/datenschutz" element={<Datenschutz />} />
           </Routes>
         </main>
         <Footer />

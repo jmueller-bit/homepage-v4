@@ -48,11 +48,28 @@ function Kontakt() {
                 
                 <div className="contact-info">
                   <h5>Adresse</h5>
-                  <p>123 Liesing Bahnhofplatz<br/>1230 Wien</p>
+                  <p><strong>Astrid Lindgren Zentrum</strong><br/>
+                  Breitenfurter Straße 401-413/1/R02<br/>
+                  1230 Wien</p>
+                  <p style={{marginTop: '10px', fontSize: '0.9rem', color: '#666'}}>
+                    Der Eingang befindet sich an der Breitenfurter Straße fast unter dem Aquädukt (an der Ecke), neben dem Städtischen Kindergarten.
+                  </p>
                 </div>
 
                 <div className="contact-info">
-                  <h5>Telefon</h5>
+                  <h5>Anfahrt</h5>
+                  <ul style={{marginLeft: '20px', fontSize: '0.9rem', color: '#555'}}>
+                    <li>S-Bahn: Bahnhof Liesing</li>
+                    <li>Straßenbahn: Linie 60</li>
+                    <li>Bus: 60A, 253, 259, 354</li>
+                  </ul>
+                  <p style={{marginTop: '10px'}}>
+                    <a href="https://goo.gl/maps/vqLKaruzByQ2" target="_blank" rel="noopener noreferrer">Google Maps →</a>
+                  </p>
+                </div>
+
+                <div className="contact-info">
+                  <h5>Telefon & Fax</h5>
                   <p><a href="tel:+4318874053">+43 1 887 40 53</a></p>
                 </div>
 
@@ -62,16 +79,15 @@ function Kontakt() {
                 </div>
 
                 <div className="contact-info">
-                  <h5>Öffnungszeiten Büro</h5>
-                  <p>Mo - Fr: 8:00 - 14:00</p>
+                  <h5>Vereinsregisternummer</h5>
+                  <p>ZVR: 960385266</p>
                 </div>
               </div>
 
               <div className="sidebar-cta glass">
                 <h4>Quick Links</h4>
                 <Link to="/eltern/interessiert" className="sidebar-link">Interessiert?</Link>
-                <Link to="/karriere/stellen" className="sidebar-link">Offene Stellen</Link>
-                <Link to="/anfrage" className="sidebar-link">Schnuppertag anfragen</Link>
+                <Link to="/karriere" className="sidebar-link">Offene Stellen</Link>
               </div>
             </div>
           </div>
