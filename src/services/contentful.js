@@ -164,4 +164,37 @@ export const getGalleryImages = async (limit = 50) => {
   }
 }
 
+// Stellenangebote (Job Listings)
+export const getStellenAngebote = async (limit = 50) => {
+  try {
+    const response = await client.getEntries({
+      content_type: 'stellenangebot',
+      order: '-fields.erstelltAm',
+      limit,
+      include: 1
+    })
+    
+    return response.items.map(item => {
+      const fields = item.fields
+      
+      return {
+        id: item.sys.id,
+        title: fields.titel,
+        department: fields.abteilung || '',
+        type: fields.art || 'Vollzeit',
+        location: fields.standort || 'Wien',
+        description: richTextToPlainText(fields.beschreibung),
+        requirements: richTextToPlainText(fields.anforderungen),
+        benefits: richTextToPlainText(fields.benefits),
+        contactEmail: fields.kontaktEmail || 'office@astrid-lindgren-zentrum.at',
+        createdAt: fields.erstelltAm,
+        isActive: fields.aktiv !== false
+      }
+    }).filter(job => job.isActive)
+  } catch (error) {
+    console.error('Error fetching stellenangebote:', error)
+    return []
+  }
+}
+
 export default client

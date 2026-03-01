@@ -10,6 +10,7 @@ import UeberUns from './pages/UeberUns';
 import Team from './pages/Team';
 import Unterstuetzen from './pages/Unterstuetzen';
 import Karriere from './pages/Karriere';
+import Stellen, { Initiativbewerbung } from './pages/Stellen';
 import Kontakt from './pages/Kontakt';
 import Gallery from './pages/Gallery';
 import Impressum from './pages/Impressum';
@@ -31,6 +32,8 @@ function App() {
             <Route path="/ueber-uns/*" element={<UeberUns />} />
             <Route path="/ueber-uns/team" element={<Team />} />
             <Route path="/unterstuetzen/*" element={<Unterstuetzen />} />
+            <Route path="/karriere/stellen" element={<Stellen />} />
+            <Route path="/karriere/initiativ" element={<Initiativbewerbung />} />
             <Route path="/karriere/*" element={<Karriere />} />
             <Route path="/kontakt/*" element={<Kontakt />} />
             <Route path="/galerie" element={<Gallery />} />
