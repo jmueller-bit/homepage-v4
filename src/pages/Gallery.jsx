@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getGalleryImages } from '../services/contentful';
 import './PageTemplate.css';
+import './Gallery.css';
 
 function Gallery() {
   const [images, setImages] = useState([]);
