@@ -37,7 +37,7 @@ function Impressum() {
                   <h3>Organschaftliche Vertreter</h3>
                   <ul>
                     <li><strong>Obmann:</strong> Inno Fail</li>
-                    <li><strong>Kassiererin:</strong> Vanessa Spielauer</li>
+                    <li><strong>Kassiererin:</strong> Ilona Müller-Pflegerl</li>
                   </ul>
                 </div>
 

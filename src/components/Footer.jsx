@@ -27,7 +27,8 @@ function Footer() {
 
           <div className="footer-col">
             <h4>Kontakt</h4>
-            <p>123 Liesing Bahnhofplatz</p>
+            <p>Astrid Lindgren Zentrum</p>
+            <p>Breitenfurter Straße 401-413/1/R02</p>
             <p>1230 Wien</p>
             <p className="contact-link">
               <a href="tel:+4318874053">+43 1 887 40 53</a>
