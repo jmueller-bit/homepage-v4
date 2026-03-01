@@ -159,6 +159,97 @@
   min-height: 120px;
 }
 
+/* Schulstufen Grid */
+.schulstufen-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.schulstufe-card {
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(94, 147, 69, 0.1);
+}
+
+.schulstufe-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(94, 147, 69, 0.15);
+  border-color: var(--primary-green);
+}
+
+.schulstufe-card h4 {
+  color: var(--primary-green);
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.schulstufe-card .age {
+  display: inline-block;
+  background: var(--primary-yellow);
+  color: var(--dark-gray);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.schulstufe-card p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Tagesablauf Tabelle */
+.tagesablauf-table {
+  margin-top: 25px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.tagesablauf-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tagesablauf-table th {
+  background: var(--primary-green);
+  color: white;
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.tagesablauf-table th:first-child {
+  width: 120px;
+}
+
+.tagesablauf-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tagesablauf-table tr:nth-child(even) {
+  background: rgba(94, 147, 69, 0.03);
+}
+
+.tagesablauf-table tr:hover {
+  background: rgba(94, 147, 69, 0.08);
+}
+
+.tagesablauf-table .time {
+  font-weight: 600;
+  color: var(--primary-green);
+  font-family: monospace;
+  font-size: 1.05rem;
+}
+
 @media (max-width: 992px) {
   .content-grid {
     grid-template-columns: 1fr;
@@ -178,6 +269,10 @@
   .feature-cards {
     grid-template-columns: 1fr;
   }
+
+  .schulstufen-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 576px) {
@@ -188,5 +283,9 @@
   .sidebar-menu,
   .sidebar-cta {
     min-width: 100%;
+  }
+
+  .schulstufen-grid {
+    grid-template-columns: 1fr;
   }
 }
