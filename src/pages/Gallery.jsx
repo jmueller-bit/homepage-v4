@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { getGalleryImages } from '../services/contentful';
-import './PageTemplate.css';
 import './Gallery.css';
 
 function Gallery() {
@@ -48,8 +47,8 @@ function Gallery() {
 
   if (loading) {
     return (
-      <div className="page-template">
-        <section className="page-hero">
+      <div className="gallery-page">
+        <section className="gallery-hero">
           <div className="container">
             <h1>Galerie</h1>
             <p className="hero-subtitle">Laden...</p>
@@ -61,8 +60,8 @@ function Gallery() {
 
   if (error) {
     return (
-      <div className="page-template">
-        <section className="page-hero">
+      <div className="gallery-page">
+        <section className="gallery-hero">
           <div className="container">
             <h1>Galerie</h1>
             <p className="hero-subtitle error">{error}</p>
@@ -73,8 +72,8 @@ function Gallery() {
   }
 
   return (
-    <div className="page-template">
-      <section className="page-hero">
+    <div className="gallery-page">
+      <section className="gallery-hero">
         <div className="container">
           <h1>Galerie</h1>
           <p className="hero-subtitle">
@@ -83,29 +82,42 @@ function Gallery() {
         </div>
       </section>
 
-      <section className="page-content section">
+      <section className="gallery-content section">
         <div className="container">
           {images.length === 0 ? (
-            <div className="glass info-box">
-              <h3>Derzeit sind keine Bilder verfügbar</h3>
-              <p>Sobald neue Bilder hinzugefügt werden, erscheinen sie hier automatisch.</p>
+            <div className="gallery-empty glass">
+              <div className="gallery-empty-icon">📷</div>
+              <h3>Keine Bilder vorhanden</h3>
+              <p>Derzeit sind keine Bilder in der Galerie verfügbar.</p>
+              <p className="gallery-empty-hint">
+                Sobald neue Bilder in Contentful hinzugefügt werden, erscheinen sie hier automatisch.
+              </p>
             </div>
           ) : (
             <div className="gallery-grid">
               {images.map((image, index) => (
                 <div
                   key={image.id}
-                  className="gallery-item"
+                  className="gallery-card glass"
                   onClick={() => openLightbox(index)}
                 >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    loading="lazy"
-                  />
-                  <div className="gallery-overlay">
-                    <span className="gallery-title">{image.title}</span>
-                    <span className="gallery-category">{image.category}</span>
+                  <div className="gallery-card-image">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      loading="lazy"
+                    />
+                    {image.category && (
+                      <span className="gallery-card-category">
+                        {image.category}
+                      </span>
+                    )}
+                  </div>
+                  <div className="gallery-card-content">
+                    <h3 className="gallery-card-title">{image.title}</h3>
+                    {image.description && (
+                      <p className="gallery-card-description">{image.description}</p>
+                    )}
                   </div>
                 </div>
               ))}
