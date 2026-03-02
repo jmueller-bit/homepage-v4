@@ -39,6 +39,11 @@ const richTextToPlainText = (richText) => {
   return richText.content.map(extractText).join('\n\n')
 }
 
+// Helper function to return rich text object directly
+const getRichText = (richText) => {
+  return richText || null
+}
+
 // News Articles
 export const getNewsArticles = async (limit = 10, skip = 0) => {
   try {
@@ -117,6 +122,7 @@ export const getTeamMembers = async (limit = 50) => {
         name: fields.name || fields.titel,
         role: fields.funktion || fields.role,
         bio: richTextToPlainText(fields.beschreibung),
+        bioRichText: fields.beschreibung || null,
         order: fields.reihenfolge || 0,
         photo: photoAsset ? {
           url: getImageUrl(photoAsset),

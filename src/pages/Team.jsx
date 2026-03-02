@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getTeamMembers } from '../services/contentful';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import './PageTemplate.css';
 import './Team.css';
 
@@ -177,9 +178,13 @@ function Team() {
             <div className="modal-body">
               <h2>{selectedMember.name}</h2>
               <p className="modal-role">{selectedMember.role}</p>
-              {selectedMember.bio && (
+              {selectedMember.bioRichText ? (
+                <div className="modal-bio">
+                  {documentToReactComponents(selectedMember.bioRichText)}
+                </div>
+              ) : selectedMember.bio ? (
                 <p className="modal-bio">{selectedMember.bio}</p>
-              )}
+              ) : null}
             </div>
           </div>
         </div>
