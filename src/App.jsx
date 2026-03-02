@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Schule from './pages/Schule';
 import FuersEltern from './pages/FuersEltern';
+import ElternServices from './pages/ElternServices';
+import ElternOrganisatorisches from './pages/ElternOrganisatorisches';
 import Schulleben from './pages/Schulleben';
 import UeberUns from './pages/UeberUns';
 import Team from './pages/Team';
@@ -26,6 +28,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/schule/*" element={<Schule />} />
+            <Route path="/eltern/services" element={<ElternServices />} />
+            <Route path="/eltern/organisatorisches" element={<ElternOrganisatorisches />} />
             <Route path="/eltern/*" element={<FuersEltern />} />
             <Route path="/schulleben/*" element={<Schulleben />} />
             <Route path="/schulleben/galerie" element={<Gallery />} />
